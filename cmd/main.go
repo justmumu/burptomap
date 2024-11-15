@@ -192,6 +192,10 @@ func runSqlmap(cCtx *cli.Context) error {
 		return err
 	}
 
+	if err := scriptFile.Close(); err != nil {
+		return err
+	}
+
 	fmt.Println(script.String())
 
 	c := exec.Cmd{
